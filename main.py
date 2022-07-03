@@ -19,7 +19,10 @@ class screenRecorder:
           self.__grab = data
 
       def setOutput(self,data):
-          self.__output = data +"/"+ self.videoName
+          if data == '':
+             self.__output = "./" + self.videoName
+          else:
+             self.__output = data +"/"+ self.videoName
 
       def Capture(self):
           if not self.__grab:
