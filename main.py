@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-import pyautogui
+import pyautogui,os
 from threading import Thread
 from keyboard import add_hotkey,wait
 from uuid import uuid4
@@ -19,7 +19,7 @@ class screenRecorder:
           self.__grab = data
 
       def setOutput(self,data):
-          if data == '':
+          if data == '' or not os.path.exists(data):
              self.__output = "./" + self.videoName
           else:
              self.__output = data +"/"+ self.videoName
